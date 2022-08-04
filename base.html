@@ -1,0 +1,28 @@
+<html>
+<body>
+        <h1 class="title"><u><center>Random Password Generator</center></u></h1>
+          <h4 class="password">YourPassword</h4>
+          <div class="btn-block char-length"><h3>9</h3></div>
+          <div class="btn btn-block generate-btn" onclick="generate();"><input type="button" value="click here to generate password"</div>
+          <input type="range" value="9" onclick="generate();" id="input" min="5" max="20" style="width:100%;">
+          <p class="info"><i>PS:Slide to set number of characters.You can change the password by clicking on the sliding bar button of your desired password length.You can create passwords ranging from 5 characters to 20 characters.</i></p>
+      <script type="text/javascript">
+        function generate(){
+          char_length = document.getElementById('input').value;
+          document.getElementsByClassName('char-length')[0].innerHTML = char_length;
+          password = getPassword(char_length);
+          document.getElementsByClassName('password')[0].innerHTML = password;
+        }
+        function getPassword(length){
+          var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()';
+          var random_string = '';
+          if(length > 0){
+            for(var i=0; i<length; i++){
+              random_string += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+          }
+          return random_string;
+        }
+      </script>
+</body>
+</html>
